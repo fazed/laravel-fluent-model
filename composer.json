@@ -1,0 +1,20 @@
+{
+  "name": "koetje/laravel-fluent-model",
+  "description": "Laravel model convenience without the Eloquent backend.",
+  "keywords": [],
+  "license": "MIT",
+  "type": "project",
+  "require": {
+    "php": "^7.0",
+    "illuminate/contracts": "^5.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Koetje\\FluentModel\\": "src/"
+    }
+  },
+  "config": {
+    "preferred-install": "dist"
+  },
+  "prefer-stable": true
+}
