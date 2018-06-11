@@ -2,20 +2,49 @@
   "name": "koetje/laravel-fluent-model",
   "description": "Laravel model convenience without the Eloquent backend.",
   "keywords": [],
+  "homepage": "https://gitlab.com/koetje/laravel-fluent-model",
   "license": "MIT",
   "type": "project",
+  "authors": [
+    {
+      "name": "Koetje",
+      "email": "thekoetjeable@gmail.com"
+    }
+  ],
   "require": {
     "php": "^7.0",
     "illuminate/contracts": "^5.5",
     "illuminate/support": "^5.5"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-master",
+    "phpunit/phpunit": "^7.2",
+    "orchestra/testbench": "~3.0"
   },
   "autoload": {
     "psr-4": {
       "Koetje\\FluentModel\\": "src/"
     }
   },
-  "config": {
-    "preferred-install": "dist"
+  "autoload-dev": {
+    "psr-4": {
+      "Koetje\\FluentModel\\Tests\\": "tests"
+    }
   },
+  "scripts": {
+    "test": "phpunit"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Koetje\\FluentModel\\FluentModelServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
   "prefer-stable": true
 }
