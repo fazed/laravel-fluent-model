@@ -12,4 +12,19 @@ interface FluentModelFactoryContract
      * @return FluentModel
      */
     public function make(array $attributes = [], $useMutators = null);
+
+    /**
+     * Get the "use mutators" flag on the instance.
+     * 
+     * @return bool
+     */
+    public function getUseMutators();
+
+    /**
+     * Set the "use mutators" flag on the instance.
+     * 
+     * @param  bool $value
+     * @return $this
+     */
+    public function setUseMutators($value);
 }

@@ -23,9 +23,7 @@ class FluentModelFactory implements FluentModelFactoryContract
     }
 
     /**
-     * Get the "use mutators" flag on the instance.
-     * 
-     * @return bool
+     * {@inheritdoc}
      */
     public function getUseMutators()
     {
@@ -33,10 +31,7 @@ class FluentModelFactory implements FluentModelFactoryContract
     }
 
     /**
-     * Set the "use mutators" flag on the instance.
-     * 
-     * @param  bool $value
-     * @return $this
+     * {@inheritdoc}
      */
     public function setUseMutators($value)
     {
