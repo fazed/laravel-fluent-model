@@ -7,7 +7,6 @@ use JsonSerializable;
 use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Contracts\Support\Arrayable;
 use Koetje\FluentModel\Exceptions\JsonEncodingException;
-use Koetje\FluentModel\Exceptions\MassAssignmentException;
 
 class FluentModel implements ArrayAccess, Arrayable, JsonSerializable, Jsonable
 {
@@ -20,7 +19,6 @@ class FluentModel implements ArrayAccess, Arrayable, JsonSerializable, Jsonable
      *
      * @param  array $attributes
      * @param  bool  $useMutators
-     * @throws MassAssignmentException
      */
     public function __construct(array $attributes = [], $useMutators = true)
     {
@@ -36,7 +34,6 @@ class FluentModel implements ArrayAccess, Arrayable, JsonSerializable, Jsonable
      * 
      * @param  array $attributes
      * @param  bool  $useMutators
-     * @throws MassAssignmentException
      */
     public static function make(array $attributes = [], $useMutators = true)
     {
@@ -49,7 +46,6 @@ class FluentModel implements ArrayAccess, Arrayable, JsonSerializable, Jsonable
      * @param  array $attributes
      * @param  bool  $useMutators
      * @return $this
-     * @throws MassAssignmentException
      */
     public function fill(array $attributes, $useMutators = true)
     {
@@ -61,8 +57,6 @@ class FluentModel implements ArrayAccess, Arrayable, JsonSerializable, Jsonable
             // the model, and all others will just get ignored for security reasons.
             if ($this->isFillable($key)) {
                 $this->setAttribute($key, $value, $useMutators);
-            } elseif ($totallyGuarded) {
-                throw new MassAssignmentException($key);
             }
         }
 
@@ -75,7 +69,6 @@ class FluentModel implements ArrayAccess, Arrayable, JsonSerializable, Jsonable
      * @param  array $attributes
      * @param  bool  $useMutators
      * @return $this
-     * @throws MassAssignmentException
      */
     public function forceFill(array $attributes, $useMutators = true)
     {
