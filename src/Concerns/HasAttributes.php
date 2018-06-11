@@ -93,7 +93,8 @@ trait HasAttributes
      */
     public function attributeExists($attribute)
     {
-        return isset($this->attributes[$attribute]);
+        return isset($this->attributes[$attribute])
+            || array_key_exists($attribute, $this->attributes);
     }
 
     /**
@@ -116,11 +117,9 @@ trait HasAttributes
      * @param  mixed  $default
      * @return mixed
      */
-    public function getAttributeValueRaw($attribute, $default = null)
+    public function attributeValueRaw($attribute, $default = null)
     {
-        if (isset($this->attributes[$attribute])
-            || \array_key_exists($attribute, $this->attributes))
-        {
+        if ($this->attributeExists($attribute)) {
             return $this->attributes[$attribute];
         }
 
