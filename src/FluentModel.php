@@ -22,8 +22,6 @@ class FluentModel implements ArrayAccess, Arrayable, JsonSerializable, Jsonable
      */
     public function __construct(array $attributes = [], $useMutators = true)
     {
-        static::unguard();
-
         $this->syncOriginal();
 
         $this->fill($attributes, $useMutators);
