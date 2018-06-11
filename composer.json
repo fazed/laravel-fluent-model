@@ -1,20 +1,20 @@
 {
-  "name": "koetje/laravel-fluent-model",
-  "description": "Laravel model convenience without the Eloquent backend.",
-  "keywords": [],
-  "homepage": "https://gitlab.com/koetje/laravel-fluent-model",
+  "name": "fazed/laravel-fluent-model",
+  "description": "Laravel's model convenience without the Eloquent backend.",
+  "keywords": ["fluent", "model", "domain", "laravel"],
+  "homepage": "https://github.com/fazed/laravel-fluent-model",
   "license": "MIT",
   "type": "project",
   "authors": [
     {
-      "name": "Koetje",
+      "name": "Fazed",
       "email": "thekoetjeable@gmail.com"
     }
   ],
   "require": {
     "php": "^7.0",
-    "illuminate/contracts": "^5.5",
-    "illuminate/support": "^5.5"
+    "illuminate/contracts": "^5.6",
+    "illuminate/support": "^5.6"
   },
   "require-dev": {
     "roave/security-advisories": "dev-master",
@@ -23,12 +23,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Koetje\\FluentModel\\": "src/"
+      "Fazed\\FluentModel\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Koetje\\FluentModel\\Tests\\": "tests"
+      "Fazed\\FluentModel\\Tests\\": "tests"
     }
   },
   "scripts": {
@@ -37,7 +37,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Koetje\\FluentModel\\FluentModelServiceProvider"
+        "Fazed\\FluentModel\\FluentModelServiceProvider"
       ]
     }
   },

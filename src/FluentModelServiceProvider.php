@@ -1,6 +1,6 @@
 <?php
 
-namespace Koetje\FluentModel;
+namespace Fazed\FluentModel;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -14,8 +14,8 @@ class FluentModelServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(
-            'Koetje\FluentModel\Contracts\FluentModelFactoryContract',
-            'Koetje\FluentModel\FluentModelFactory'
+            'Fazed\FluentModel\Contracts\FluentModelFactoryContract',
+            'Fazed\FluentModel\FluentModelFactory'
         );
     }
 }

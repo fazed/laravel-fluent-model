@@ -1,8 +1,8 @@
 <?php
 
-namespace Koetje\FluentModel;
+namespace Fazed\FluentModel;
 
-use Koetje\FluentModel\Contracts\FluentModelFactoryContract;
+use Fazed\FluentModel\Contracts\FluentModelFactoryContract;
 
 class FluentModelFactory implements FluentModelFactoryContract
 {

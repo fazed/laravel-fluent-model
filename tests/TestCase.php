@@ -1,9 +1,9 @@
 <?php
 
-namespace Koetje\FluentModel\Tests;
+namespace Fazed\FluentModel\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
-use Koetje\FluentModel\FluentModelServiceProvider;
+use Fazed\FluentModel\FluentModelServiceProvider;
 
 abstract class TestCase extends Orchestra
 {

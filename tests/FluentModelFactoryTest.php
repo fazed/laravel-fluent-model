@@ -1,8 +1,8 @@
 <?php
 
-namespace Koetje\FluentModel\Tests;
+namespace Fazed\FluentModel\Tests;
 
-use Koetje\FluentModel\Contracts\FluentModelFactoryContract;
+use Fazed\FluentModel\Contracts\FluentModelFactoryContract;
 
 class FluentModelFactoryTest extends TestCase
 {

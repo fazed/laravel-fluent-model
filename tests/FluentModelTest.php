@@ -1,8 +1,8 @@
 <?php
 
-namespace Koetje\FluentModel\Tests;
+namespace Fazed\FluentModel\Tests;
 
-use Koetje\FluentModel\FluentModel;
+use Fazed\FluentModel\FluentModel;
 
 class FluentModelTest extends TestCase
 {

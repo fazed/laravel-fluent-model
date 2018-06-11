@@ -1,6 +1,6 @@
 <?php
 
-namespace Koetje\FluentModel\Contracts;
+namespace Fazed\FluentModel\Contracts;
 
 interface FluentModelFactoryContract
 {

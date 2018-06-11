@@ -1,6 +1,6 @@
 <?php
 
-namespace Koetje\FluentModel;
+namespace Fazed\FluentModel;
 
 use ArrayAccess;
 use JsonSerializable;

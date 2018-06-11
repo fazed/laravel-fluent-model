@@ -1,6 +1,6 @@
 <?php
 
-namespace Koetje\FluentModel\Concerns;
+namespace Fazed\FluentModel\Concerns;
 
 use Illuminate\Support\Str;
 

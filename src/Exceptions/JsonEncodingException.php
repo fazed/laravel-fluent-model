@@ -1,6 +1,6 @@
 <?php
 
-namespace Koetje\FluentModel\Exceptions;
+namespace Fazed\FluentModel\Exceptions;
 
 use RuntimeException;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Koetje\FluentModel\Concerns;
+namespace Fazed\FluentModel\Concerns;
 
 use DateTimeInterface;
 use Illuminate\Support\Arr;
@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Collection as BaseCollection;
-use Koetje\FluentModel\Exceptions\JsonEncodingException;
+use Fazed\FluentModel\Exceptions\JsonEncodingException;
 
 trait HasAttributes
 {
