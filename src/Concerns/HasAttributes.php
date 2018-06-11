@@ -117,7 +117,7 @@ trait HasAttributes
      * @param  mixed  $default
      * @return mixed
      */
-    public function attributeValueRaw($attribute, $default = null)
+    public function attributeRawValue($attribute, $default = null)
     {
         if ($this->attributeExists($attribute)) {
             return $this->attributes[$attribute];
