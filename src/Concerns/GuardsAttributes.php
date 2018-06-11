@@ -1,6 +1,6 @@
 <?php
 
-namespace Flashpoint\Solaris\Model\Concerns;
+namespace Koetje\FluentModel\Concerns;
 
 use Illuminate\Support\Str;
 
@@ -40,7 +40,7 @@ trait GuardsAttributes
     /**
      * Set the fillable attributes for the model.
      *
-     * @param  array  $fillable
+     * @param  array $fillable
      * @return $this
      */
     public function fillable(array $fillable)
@@ -63,7 +63,7 @@ trait GuardsAttributes
     /**
      * Set the guarded attributes for the model.
      *
-     * @param  array  $guarded
+     * @param  array $guarded
      * @return $this
      */
     public function guard(array $guarded)
@@ -76,7 +76,7 @@ trait GuardsAttributes
     /**
      * Disable all mass assignable restrictions.
      *
-     * @param  bool  $state
+     * @param  bool $state
      * @return void
      */
     public static function unguard($state = true)
@@ -107,7 +107,7 @@ trait GuardsAttributes
     /**
      * Run the given callable while being unguarded.
      *
-     * @param  callable  $callback
+     * @param  callable $callback
      * @return mixed
      */
     public static function unguarded(callable $callback)
@@ -128,7 +128,7 @@ trait GuardsAttributes
     /**
      * Determine if the given attribute may be mass assigned.
      *
-     * @param  string  $key
+     * @param  string $key
      * @return bool
      */
     public function isFillable($key)
@@ -157,7 +157,7 @@ trait GuardsAttributes
     /**
      * Determine if the given key is guarded.
      *
-     * @param  string  $key
+     * @param  string $key
      * @return bool
      */
     public function isGuarded($key)
@@ -178,7 +178,7 @@ trait GuardsAttributes
     /**
      * Get the fillable attributes of a given array.
      *
-     * @param  array  $attributes
+     * @param  array $attributes
      * @return array
      */
     protected function fillableFromArray(array $attributes)

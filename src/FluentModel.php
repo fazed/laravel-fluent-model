@@ -16,14 +16,7 @@ class FluentModel implements ArrayAccess, Arrayable, JsonSerializable, Jsonable
         Concerns\GuardsAttributes;
 
     /**
-     * The array of booted models.
-     *
-     * @var array
-     */
-    protected static $booted = [];
-
-    /**
-     * Create a new SolrModel model instance.
+     * Create a new fluent model instance.
      *
      * @param  array $attributes
      * @param  bool  $useMutators
@@ -31,8 +24,6 @@ class FluentModel implements ArrayAccess, Arrayable, JsonSerializable, Jsonable
      */
     public function __construct(array $attributes = [], $useMutators = true)
     {
-        $this->bootIfNotBooted();
-
         static::unguard();
 
         $this->syncOriginal();
@@ -41,58 +32,21 @@ class FluentModel implements ArrayAccess, Arrayable, JsonSerializable, Jsonable
     }
 
     /**
-     * Check if the model needs to be booted and if so, do it.
-     *
-     * @return void
+     * Statically create a new fluent model instance.
+     * 
+     * @param  array $attributes
+     * @param  bool  $useMutators
+     * @throws MassAssignmentException
      */
-    protected function bootIfNotBooted()
+    public static function make(array $attributes = [], $useMutators = true)
     {
-        if (! isset(static::$booted[static::class])) {
-            static::$booted[static::class] = true;
-            static::boot();
-        }
-    }
-
-    /**
-     * The "booting" method of the model.
-     *
-     * @return void
-     */
-    protected static function boot()
-    {
-        static::bootTraits();
-    }
-
-    /**
-     * Boot all of the bootable traits on the model.
-     *
-     * @return void
-     */
-    protected static function bootTraits()
-    {
-        $class = static::class;
-
-        foreach (class_uses_recursive($class) as $trait) {
-            if (method_exists($class, $method = 'boot'.class_basename($trait))) {
-                forward_static_call([$class, $method]);
-            }
-        }
-    }
-
-    /**
-     * Clear the list of booted models so they will be re-booted.
-     *
-     * @return void
-     */
-    public static function clearBootedModels()
-    {
-        static::$booted = [];
+        return new self($attributes, $useMutators);
     }
 
     /**
      * Fill the model with an array of attributes.
      *
-     * @param  array  $attributes
+     * @param  array $attributes
      * @param  bool  $useMutators
      * @return $this
      * @throws MassAssignmentException
@@ -118,7 +72,7 @@ class FluentModel implements ArrayAccess, Arrayable, JsonSerializable, Jsonable
     /**
      * Fill the model with an array of attributes. Force mass assignment.
      *
-     * @param  array  $attributes
+     * @param  array $attributes
      * @param  bool  $useMutators
      * @return $this
      * @throws MassAssignmentException
@@ -143,7 +97,7 @@ class FluentModel implements ArrayAccess, Arrayable, JsonSerializable, Jsonable
     /**
      * Convert the model instance to JSON.
      *
-     * @param  int  $options
+     * @param  int $options
      * @return string
      * @throws JsonEncodingException
      */
@@ -181,7 +135,7 @@ class FluentModel implements ArrayAccess, Arrayable, JsonSerializable, Jsonable
     /**
      * Dynamically retrieve attributes on the model.
      *
-     * @param  string  $key
+     * @param  string $key
      * @return mixed
      */
     public function __get($key)
@@ -192,7 +146,7 @@ class FluentModel implements ArrayAccess, Arrayable, JsonSerializable, Jsonable
     /**
      * Dynamically set attributes on the model.
      *
-     * @param  string  $key
+     * @param  string $key
      * @param  mixed  $value
      * @return void
      */
@@ -204,7 +158,7 @@ class FluentModel implements ArrayAccess, Arrayable, JsonSerializable, Jsonable
     /**
      * Determine if the given attribute exists.
      *
-     * @param  mixed  $offset
+     * @param  mixed $offset
      * @return bool
      */
     public function offsetExists($offset)
@@ -215,7 +169,7 @@ class FluentModel implements ArrayAccess, Arrayable, JsonSerializable, Jsonable
     /**
      * Get the value for a given offset.
      *
-     * @param  mixed  $offset
+     * @param  mixed $offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -226,8 +180,8 @@ class FluentModel implements ArrayAccess, Arrayable, JsonSerializable, Jsonable
     /**
      * Set the value for a given offset.
      *
-     * @param  mixed  $offset
-     * @param  mixed  $value
+     * @param  mixed $offset
+     * @param  mixed $value
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -238,7 +192,7 @@ class FluentModel implements ArrayAccess, Arrayable, JsonSerializable, Jsonable
     /**
      * Unset the value for a given offset.
      *
-     * @param  mixed  $offset
+     * @param  mixed $offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -249,7 +203,7 @@ class FluentModel implements ArrayAccess, Arrayable, JsonSerializable, Jsonable
     /**
      * Determine if an attribute or relation exists on the model.
      *
-     * @param  string  $key
+     * @param  string $key
      * @return bool
      */
     public function __isset($key)
@@ -260,7 +214,7 @@ class FluentModel implements ArrayAccess, Arrayable, JsonSerializable, Jsonable
     /**
      * Unset an attribute on the model.
      *
-     * @param  string  $key
+     * @param  string $key
      * @return void
      */
     public function __unset($key)
@@ -276,15 +230,5 @@ class FluentModel implements ArrayAccess, Arrayable, JsonSerializable, Jsonable
     public function __toString()
     {
         return $this->toJson();
-    }
-
-    /**
-     * When a model is being unserialized, check if it needs to be booted.
-     *
-     * @return void
-     */
-    public function __wakeup()
-    {
-        $this->bootIfNotBooted();
     }
 }
