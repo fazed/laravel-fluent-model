@@ -21,4 +21,27 @@ class FluentModelFactory implements FluentModelFactoryContract
     {
         return FluentModel::make($attributes, $useMutators ?? $this->useMutators);
     }
+
+    /**
+     * Get the "use mutators" flag on the instance.
+     * 
+     * @return bool
+     */
+    public function getUseMutators()
+    {
+        return $this->useMutators;
+    }
+
+    /**
+     * Set the "use mutators" flag on the instance.
+     * 
+     * @param  bool $value
+     * @return $this
+     */
+    public function setUseMutators($value)
+    {
+        $this->useMutators = $value;
+
+        return $this;
+    }
 }
