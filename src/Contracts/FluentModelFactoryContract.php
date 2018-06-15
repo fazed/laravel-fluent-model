@@ -12,4 +12,22 @@ interface FluentModelFactoryContract
      * @return FluentModel
      */
     public function make(array $attributes = [], $useMutators = null);
+
+    /**
+     * Create a new fluent model instance
+     * with mutators enabled by default.
+     * 
+     * @param  array $attributes
+     * @return FluentModel
+     */
+    public function makeWithMutators(array $attributes);
+
+    /**
+     * Create a new fluent model instance
+     * with mutators disabled by default.
+     * 
+     * @param  array $attributes
+     * @return FluentModel
+     */
+    public function makeWithoutMutators(array $attributes);
 }

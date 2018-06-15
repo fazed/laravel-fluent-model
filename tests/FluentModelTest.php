@@ -3,6 +3,7 @@
 namespace Fazed\FluentModel\Tests;
 
 use Fazed\FluentModel\FluentModel;
+use Fazed\FluentModel\Tests\Examples\WithMutators;
 
 class FluentModelTest extends TestCase
 {
@@ -18,6 +19,22 @@ class FluentModelTest extends TestCase
     public function it_can_create_instance_w_data()
     {
         $model = FluentModel::make(['some' => 'data']);
+
+        $this->assertSame('data', $model->some);
+    }
+
+    /** @test */
+    public function it_can_create_instance_w_mutators()
+    {
+        $model = WithMutators::makeWithMutators(['some' => 'data']);
+
+        $this->assertSame('_data', $model->some);
+    }
+
+    /** @test */
+    public function it_can_create_instance_wo_mutators()
+    {
+        $model = WithMutators::makeWithoutMutators(['some' => 'data'], false);
 
         $this->assertSame('data', $model->some);
     }

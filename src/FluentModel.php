@@ -32,10 +32,35 @@ class FluentModel implements ArrayAccess, Arrayable, JsonSerializable, Jsonable
      * 
      * @param  array $attributes
      * @param  bool  $useMutators
+     * @return static
      */
     public static function make(array $attributes = [], $useMutators = true)
     {
-        return new self($attributes, $useMutators);
+        return new static($attributes, $useMutators);
+    }
+
+    /**
+     * Statically create a new fluent model instance
+     * with mutators flag set enabled by defaeult.
+     * 
+     * @param  array $attributes
+     * @return static
+     */
+    public static function makeWithMutators(array $attributes = [])
+    {
+        return new static($attributes, true);
+    }
+
+    /**
+     * Statically create a new fluent model instance
+     * with mutators flag set disabled by defaeult.
+     * 
+     * @param  array $attributes
+     * @return static
+     */
+    public static function makeWithoutMutators(array $attributes = [])
+    {
+        return new static($attributes, false);
     }
 
     /**
