@@ -34,7 +34,7 @@ class FluentModelTest extends TestCase
     /** @test */
     public function it_can_create_instance_wo_mutators()
     {
-        $model = WithMutators::makeWithoutMutators(['some' => 'data'], false);
+        $model = WithMutators::makeWithoutMutators(['some' => 'data']);
 
         $this->assertSame('data', $model->some);
     }
