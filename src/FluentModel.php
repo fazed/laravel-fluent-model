@@ -6,7 +6,7 @@ use ArrayAccess;
 use JsonSerializable;
 use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Contracts\Support\Arrayable;
-use Koetje\FluentModel\Exceptions\JsonEncodingException;
+use Fazed\FluentModel\Exceptions\JsonEncodingException;
 
 class FluentModel implements ArrayAccess, Arrayable, JsonSerializable, Jsonable
 {
