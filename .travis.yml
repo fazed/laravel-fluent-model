@@ -7,3 +7,5 @@ script:
   composer test
 install:
   - composer install --prefer-source --no-interaction
+notifications:
+  email: false
