@@ -7,6 +7,11 @@ use Illuminate\Support\ServiceProvider;
 class FluentModelServiceProvider extends ServiceProvider
 {
     /**
+     * {@inheritdoc}
+     */
+    protected $defer = true;
+
+    /**
      * Register the service provider.
      *
      * @return void
@@ -17,5 +22,15 @@ class FluentModelServiceProvider extends ServiceProvider
             'Fazed\FluentModel\Contracts\FluentModelFactoryContract',
             'Fazed\FluentModel\FluentModelFactory'
         );
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function provides()
+    {
+        return [
+            'Fazed\FluentModel\Contracts\FluentModelFactoryContract',
+        ];
     }
 }
