@@ -13,8 +13,8 @@
   ],
   "require": {
     "php": "^7.1",
-    "illuminate/contracts": "^5.6",
-    "illuminate/support": "^5.6"
+    "illuminate/contracts": "^5.6|^6.0",
+    "illuminate/support": "^5.6|^6.0"
   },
   "require-dev": {
     "roave/security-advisories": "dev-master",
