@@ -160,7 +160,7 @@ trait HasAttributes
 
         // Here we hide the attributes from the accessor mapping
         // and append their accessors to the append listing.
-        if (\count($attributesWithAccessors = array_only($attributes, array_keys($this->accessors)))) {
+        if (\count($attributesWithAccessors = Arr::only($attributes, array_keys($this->accessors)))) {
             foreach ($attributesWithAccessors as $_attribute=>$_values) {
                 if ($this->hasGetMutator($this->accessors[$_attribute])) {
                     $attributes[snake_case($this->accessors[$_attribute])] = $this->getAttribute($this->accessors[$_attribute]);
